@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Covid-19 Website</title>
+
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <!-- custom css file link  -->
+    
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
+:root{
+    --red:#FF4F5B;
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-decoration: none;
+    transition:all .3s cubic-bezier(.16,.8,.62,1.52);
+    text-transform: capitalize;
+}
+
+*::selection{
+    background:var(--red);
+    color:#fff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+html::-webkit-scrollbar{
+    width:1.3rem;
+}
+
+html::-webkit-scrollbar-track{
+    background: #000;
+}
+
+html::-webkit-scrollbar-thumb{
+    background: var(--red);
+}
+
+body{
+    background:#f9f9f9;
+}
+
+section{
+    min-height: 100vh;
+    padding:0 7%;
+    padding-top: 9rem;
+}
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 75vh; /* Adjust this to control the height */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Style the entire page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Style the COVID-19 Cases Form container */
+#covid {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    width: 60vh;
+}
+
+/* Style the form header */
+#casesForm h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333333;
+}
+
+/* Style labels */
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #555555;
+    font-size: 18px;
+}
+
+/* Style input fields */
+input[type="text"],
+input[type="date"] {
+    padding: 14px;
+    width: 100%;
+    border: 1px solid #cccccc;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 18px;
+    color: #333333;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Add media query for responsiveness */
+@media screen and (max-width: 768px) {
+    #covid {
+        padding: 30px;
+    }
+}
+
+.btn{
+    display: inline-block;
+    margin-top: 1rem;
+    padding:1rem 4rem;
+    border-radius: 5rem;
+    background:var(--red);
+    color:#fff;
+    overflow: hidden;
+    position: relative;
+    z-index: 0;
+    font-size: 1.7rem;
+}
+
+.btn::before{
+    content:'';
+    position: absolute;
+    top: 0; left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    background:#444;
+    clip-path: polygon(0 0, 100% 0, 0 0, 0% 100%);
+    transition:.3s linear;
+}
+
+.btn:hover::before{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.heading{
+    font-size: 3rem;
+    color:#666;
+}
+
+.heading span{
+    color:var(--red);
+}
+
+
+header{
+    width:100%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top:0; left: 0;
+    z-index: 1000;
+    padding:2.5rem 7%;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+header .logo{
+    font-size: 2.5rem;
+    color:#666;
+}
+
+header .logo span{
+    color:var(--red);
+}
+
+header .navbar ul{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+}
+
+header .navbar ul li{
+    margin-left: 2.5rem;
+}
+
+header .navbar ul li a{
+    color:#999;
+    font-size: 2rem;
+}
+
+header .navbar ul li a.active,
+header .navbar ul li a:hover{
+    color:var(--red);
+    border-bottom: .2rem solid var(--red);
+    padding:.7rem 0;
+}
+
+#menu{
+    font-size: 3rem;
+    color:#999;
+    cursor: pointer;
+    display: none;
+}
+
+.home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-image: url("https://cdn.glitch.global/381c4dcd-22c2-42e2-8a96-03553e4add13/ezgif-sixteen_nine_237.avif?v=1694543215887");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.home .content{
+    flex:1 1 40rem;;
+}
+
+.home .content span{
+    color:var(--red);
+    font-size: 2.5rem;
+}
+
+.home .content h3{
+    color:#666;
+    font-size: 5rem;
+}
+
+.home .content p{
+    color:#999;
+    font-size: 2rem;
+    padding:1rem 0;
+}
+
+.protect .heading{
+    text-align: center;
+    padding:1rem;
+}
+
+.protect .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.protect .box-container .box{
+    background:#fff;
+    border:.1rem solid rgba(0,0,0,.1);
+    padding:2rem;
+    margin:2rem;
+    width:34rem;
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    text-align: center;
+}
+
+.protect .box-container .box img{
+    height: 17rem;
+    width:17rem;
+}
+
+.protect .box-container .box h3{
+    font-size: 2.5rem;
+    color:#666;
+    padding:1rem 0;
+}
+
+.protect .box-container .box p{
+    font-size: 1.4rem;
+    color:#999;
+    padding:.5rem;
+}
+
+.protect .box-container .box:hover{
+    transform:translateY(-1rem);
+}
+
+.symtoms{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.symtoms .content{
+    flex:1 1 40rem;
+}
+
+.symtoms .image{
+    flex:1 1 40rem;
+}
+
+.symtoms .image img{
+    width:100%;
+}
+
+.symtoms .content p{
+    font-size: 1.5rem;
+    color:#999;
+    padding:1rem 0;
+}
+
+.symtoms .content ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding:1rem 0;
+}
+
+.symtoms .content ul .two{
+    padding-left: 4.5rem;
+}
+
+.symtoms .content ul li{
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    color:#666;
+    padding: .5rem 0;
+}
+
+.prevent{
+    background:#222;
+}
+
+.prevent .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding:2rem 0;
+}
+
+.prevent .row .image{
+    flex:1 1 37rem;
+    height:35rem;
+    text-align: center;
+}
+
+.prevent .row .image img{
+    height:100%;
+    width:100%;
+    object-fit: cover;
+}
+
+.prevent .row .content{
+    padding:2rem 0;
+    flex:1 1 37rem;
+}
+
+.prevent .row .content .heading{
+    color:#fff;
+}
+
+.prevent .row .content p{
+    font-size: 1.7rem;
+    color:#aaa;
+    padding:1rem 0;
+}
+
+.prevent .row .content ul li{
+    margin-left: 2rem;
+    font-size: 1.5rem;
+    color:#aaa;
+    padding:.5rem 0;
+}
+
+.spread .heading{
+    text-align: center;
+    padding:1rem;
+}
+
+.spread .image{
+    height: 80vh;
+    width:100%;
+    background:url(https://cdn.glitch.global/a7278f8e-a0d1-4d8a-9abd-ba087bcbb360/map.png?v=1692988107410) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+#id{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/* Footer Styles */
+
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.social-icons {
+    margin-top: 10px;
+}
+
+.social-icon {
+    font-size: 24px;
+    color: #fff;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+}
+
+.social-icon:hover {
+    color: #007bff;
+}
+#result{
+    margin-top: 3vh;
+}
+</style>
+    
+
+</head>
+<body>
+   
+<!-- header section starts  -->
+
+<header>
+    <a href="#" class="logo">c<span class="fas fa-virus"></span>ovid-19</a>
+
+    <div id="menu" class="fas fa-bars"></div>
+
+    <nav class="navbar">
+        <ul>
+            <li><a class="active" href="#home">home</a></li>
+            <li><a href="#protect">protect</a></li>
+            <li><a href="#symtoms">symtoms</a></li>
+            <li><a href="#prevent">prevent</a></li>
+            <li><a href="#spread">spread</a></li>
+            <li><a href="/logout">logout</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- header section ends -->
+
+<!-- home section starts  -->
+<section class="home" id="home">
+    <!-- COVID-19 Cases Form -->
+    <div id="covid" class="flex-center">
+        <form id="casesForm" method="post">
+            <label for="country">Country:</label>
+            <input type="text" id="country" name="country" required>
+            <br><br>
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required>
+            <br><br>
+            <button type="submit">Get Cases</button>
+            <h1 id="result"></h1>
+        </form>
+    </div>
+</section>
+<!-- home section ends -->
+
+<section class="protect" id="protect">
+
+    <h1 class="heading">take steps to <span>protect</span> yourself</h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <img src="https://cdn.glitch.global/a7278f8e-a0d1-4d8a-9abd-ba087bcbb360/protect-1.png?v=1692988112902" alt="">
+            <h3>Wear A Face Mask</h3>
+            <p>Wearing a face mask is an important public health measure, especially during times of contagious respiratory illnesses like COVID-19.</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+        <div class="box">
+            <img src="https://cdn.glitch.global/a7278f8e-a0d1-4d8a-9abd-ba087bcbb360/protect-2.png?v=1692988118361" alt="">
+            <h3>Wash Your Hands</h3>
+            <p>Wash your hands is a fundamental and effective practice for maintaining good hygiene and preventing the transmission of the virus.</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+        <div class="box">
+            <img src="https://cdn.glitch.global/a7278f8e-a0d1-4d8a-9abd-ba087bcbb360/protect-3.png?v=1692988124979" alt="">
+            <h3>Avoid Close Contact</h3>
+            <p>Avoiding close contact with others is one of the critical strategies to reduce the transmission of COVID-19, especially when there is community spread of the virus.</p>
+            <a href="#" class="btn">learn more</a>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- symtoms section starts  -->
+
+<section class="symtoms" id="symtoms">
+
+    <div class="content">
+        <h1 class="heading">What Are The Main <span>Symptoms?</span></h1>
+        <p>The main symptoms of COVID-19 can vary from person to person, and some individuals may remain asymptomatic while still being contagious. However, the most common symptoms of COVID-19 .</p>
+        <ul>
+            <div class="one">
+                <li>fever</li>
+                <li>Tiredness</li>
+                <li>Dry Cough</li>
+            </div>
+            <div class="two">
+                <li>Sore Throat</li>            
+                <li>Aches and Pains</li>
+                <li>Shortness of Breath</li>
+            </div>
+        </ul>
+        <a href="#" class="btn">know more</a>
+    </div>
+
+    <div class="image">
+        <img src="https://cdn.glitch.global/a7278f8e-a0d1-4d8a-9abd-ba087bcbb360/symptoms-img.png?v=1692988140521" alt="">
+    </div>
+
+</section>
+
+<!-- symtoms section ends -->
+
+<!-- prevent section starts  -->
+
+<section class="prevent" id="prevent">
+
+    <div class="row">
+
+        <div class="image">
+            <img src="https://cdn.glitch.global/a7278f8e-a0d1-4d8a-9abd-ba087bcbb360/dont-img.png?v=1692988092266" alt="">
+        </div>
+
+        <div class="content">
+            <h1 class="heading">things <span>not to do</span> during covid</h1>
+            <p>During the COVID-19 pandemic, there are several things you should avoid doing to protect yourself and others from the spread of the virus.</p>
+            <ul>
+                <li>Do Not Share Eating</li>
+                <li>Do Not Touch Your Face or Nose</li>
+                <li>Do Not Contact Sick People</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="row">
+
+        <div class="content">
+            <h1 class="heading">things <span>to do</span> during covid</h1>
+            <p>During the COVID-19 pandemic, there are several important actions you can take to protect yourself and others, support public health efforts, and adapt to the challenges posed by the virus.</p>
+            <ul>
+                <li>Wash Your Hands For 20 sec</li>
+                <li>Wear a Mask if Available</li>
+                <li>Seek Medical Care Regularly</li>
+            </ul>
+        </div>
+
+        <div class="image">
+            <img src="https://cdn.glitch.global/a7278f8e-a0d1-4d8a-9abd-ba087bcbb360/do-img.png?v=1692988075254" alt="">
+        </div>
+
+    </div>
+
+</section>
+
+<!-- prevent section ends -->
+
+<!-- spread section starts  -->
+
+<section class="spread" id="spread">
+
+    <h1 class="heading">how Covid-19 <span>spreads</span> over the world</h1>
+
+    <div class="image"></div><br>
+
+</section>
+
+<!-- spread section ends -->
+
+<!-- footer section starts  -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <p>&copy; Covid 19. All rights reserved.</p>
+            <div class="social-icons">
+                <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- footer section ends -->
+</body>
+<!-- jquery cdn link  -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<script>
+    $(document).ready(function(){
+
+$('#menu').click(function(){
+    $(this).toggleClass('fa-times');
+    $('.navbar').toggleClass('nav-toggle');
+});
+
+$(window).on('scroll load',function(){
+
+  $('#menu').removeClass('fa-times');
+  $('.navbar').removeClass('nav-toggle');
+
+  if($(window).scrollTop() > 0){
+    $('.scroll-top').show();
+  }else{
+    $('.scroll-top').hide();
+  }
+
+  // scroll spy 
+
+  
+$('section').each(function(){
+
+  let height = $(this).height();
+  let offset = $(this).offset().top - 200;
+  let id = $(this).attr('id');
+  let top = $(window).scrollTop();
+
+  if(top > offset && top < offset + height){
+    $('.navbar ul li a').removeClass('active')
+    $('.navbar').find(`[href="#${id}"]`).addClass('active');
+  }
+
+});
+
+});
+
+// smooth scrolling
+
+$('a[href*="#"]').on('click',function(e){
+
+  e.preventDefault();
+
+  $('html, body').animate({
+
+    scrollTop : $($(this).attr('href')).offset().top,
+
+  },
+  500,
+  'linear'
+  )
+
+})
+
+});
+
+    document.getElementById('casesForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+    
+        const country = document.getElementById('country').value;
+        const date = document.getElementById('date').value;
+    
+        fetch('/gettCases', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json', // Set the Content-Type header
+            },
+            body: JSON.stringify({ country, date }), // Send the data as JSON
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Response data:', data);
+    
+            // Display the result on the page
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = `<p>${data.result}</p>`;
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    });
+</script>
+
+
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: url(https://cdn.glitch.global/ca38236d-c4f9-48e0-8807-6fd23a5b69d6/night.jpg?v=1695749085767) no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .wrapper {
+            width: 420px;
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, .2);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+            color: #fff;
+            border-radius: 10px;
+            padding: 30px 40px;
+        }
+
+        .wrapper h2 {
+            font-size: 36px;
+            text-align: center;
+        }
+
+        .signup-container {
+            background: transparent;
+        }
+
+        .signup-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .signup-header h2 {
+            font-size: 36px;
+        }
+
+        .signup-header p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .signup-input {
+            width: 100%;
+            height: 60px;
+            background: transparent;
+            border: none;
+            outline: none;
+            border: 2px solid rgba(255, 255, 255, .2);
+            border-radius: 40px;
+            font-size: 16px;
+            color: #fff;
+            padding: 20px 40px 20px 20px;
+            margin-bottom: 15px;
+        }
+
+        .signup-input::placeholder {
+            color: #fff;
+        }
+        .wrapper .signup-button{
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    color: #333;
+    font-weight: 700;
+}
+
+        .signup-button {
+            width: 100%;
+            height: 45px;
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .signup-button:hover {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+        }
+
+        .login-link {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .login-link a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .login-link a:hover {
+            text-decoration: underline;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h2>Sign Up</h2>
+    <div class="signup-container">
+        <div class="signup-header">
+            <p>Create an account to get started</p>
+        </div>
+        <form method="post" action="/signupsubmit">
+            <input class="signup-input" type="text" placeholder="Full Name" name="fullname">
+            <input class="signup-input" type="email" placeholder="Email" name="email">
+            <input class="signup-input" type="password" placeholder="Password" name="password">
+            <button class="signup-button">Sign Up</button>
+        </form>
+        <div class="login-link">
+            <p>Already have an account? <a href="http://localhost:3000/login">Login</a></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
